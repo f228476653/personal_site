@@ -14,14 +14,22 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        postCssPlugins: [somePostCssPlugin()],
-        precision: 6,
+        path: `${__dirname}/src/markdowns`,
+        name: 'markdowns',
+      }
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+        displayName: false
       },
     },
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
